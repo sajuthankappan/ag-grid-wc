@@ -17,7 +17,7 @@ steps:
 
     commands:
       - npm config set //npm.pkg.github.com/:_authToken $GITHUB_TOKEN
-      - npm run publish
+      - npm publish
 
 trigger:
   branch:
