@@ -1,0 +1,26 @@
+kind: pipeline
+type: docker
+name: build and publish package
+
+steps:
+  - name: build
+    image: node:lts-alpine
+    commands:
+      - npm install
+      - npm run build
+
+  - name: publish
+    image: node:lts-alpine
+    environment:
+      GITHUB_TOKEN:
+        from_secret: GITHUB_TOKEN
+
+    commands:
+      - npm config set //npm.pkg.github.com/:_authToken $GITHUB_TOKEN
+      - npm run publish
+
+trigger:
+  branch:
+    - main
+  event:
+    - push
