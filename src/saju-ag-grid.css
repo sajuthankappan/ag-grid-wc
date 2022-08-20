@@ -1,0 +1,11 @@
+@import "/node_modules/ag-grid-community/styles/ag-grid.css";
+@import "/node_modules/ag-grid-community/styles/ag-theme-alpine.css";
+
+
+:host {
+  --saju-ag-grid-height: 75vh;
+}
+
+.saju-ag-grid-height {
+  height: var(--saju-ag-grid-height)
+}
